@@ -11,7 +11,7 @@ int main (int argc, char *argv[]) {
   blk_t block_start, block_end;
   io_manager unix_io;
  
-  error = ext2fs_open(argv[1], EXT2_FLAG_RW, 0, 4096, EXT2_ET_MAGIC_UNIX_IO_CHANNEL, gagatinho); //EXT2_FLAG_RW flag que determina apenas leitura e escrita | superbloco 0 determina que o superbloco primário 1024 será usado
+  error = ext2fs_open(argv[1], EXT2_FLAG_RW, 0, 4096, unix_io_manager, gagatinho); //EXT2_FLAG_RW flag que determina apenas leitura e escrita | superbloco 0 determina que o superbloco primário 1024 será usado
   if(error != 0){
     printf("Erro na abertura do sistema de arquivos.\n");
     return 0;
